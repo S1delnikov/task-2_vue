@@ -1,0 +1,14 @@
+async checkTokenRelevance(ctx) {
+            try {
+                const response = await axios.get('/token_relevance', {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem('token')
+                        } 
+                })
+                
+                console.log('Token is relevant')
+                ctx.commit('setAuthenticated', true)
+            } catch  {
+                ctx.commit('setAuthenticated', false)
+            }
+        },
