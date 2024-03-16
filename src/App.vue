@@ -1,23 +1,15 @@
 <template>
   <nav class="my-navbar">
     <router-link to="/">Главная</router-link> |
-    <!-- <router-link to="/about">About</router-link> | -->
     <router-link to="/login">Войти</router-link> |
     <router-link to="/registration">Регистрация</router-link> |
     <button @click="logout">Выйти</button>
   </nav>
-  <!-- <form v-if="isAuthenticated == false" @submit.prevent="submit">
-    <input type="text" placeholder="Введите логин" v-model="form.login">
-    <input type="text" placeholder="Введите пароль" v-model="form.password">
-    <button type="submit">Войти</button>
-  </form> -->
-  <!-- <router-view v-else/> -->
   <router-view />
 </template>
 
 <script>
-import axios from 'axios';
-import { mapActions, mapGetters } from 'vuex';
+
 export default {
   methods: {
     async logout() {

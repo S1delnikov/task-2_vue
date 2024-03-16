@@ -25,9 +25,6 @@ export default {
     ...mapActions(['login']),
     async submit() {
       await this.login(this.form);
-      // if (this.isAuthenticated == true){
-      //   this.$router.push('/');
-      // }
     },
   }
 }

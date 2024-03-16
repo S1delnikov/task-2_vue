@@ -10,12 +10,9 @@ export default {
     },
     getters: {
         isAuthenticated(state) {
-            // console.log(state.authenticated)
-            // return state.authenticated
             return localStorage.getItem('isAuthenticated')
         },
         getUsername(state) {
-            // return state.username
             return localStorage.getItem('username')
         }
     },
@@ -35,20 +32,16 @@ export default {
         },
         async registration(ctx, form){
             try{
-                console.log('Im trying')
                 await axios.post('/registration', form);
-                console.log(form.username + ' created.')
                 localStorage.setItem('username', form.username);
                 router.push('/login');
             } catch{
-                console.log('Ошибка при регистрации')
+                alert('Ошибка при регистрации')
             }
         },
         async login(ctx, form) {
             if (form.login != '' && form.password != ''){
-                console.log(form.login, form.password)
                 try{
-                console.log(form.login, form.password)
                 const User = new FormData();
                 User.append('username', form.login);
                 User.append('password', form.password);
@@ -61,14 +54,13 @@ export default {
                 ctx.commit('setUsername', form.login)
 
                 router.push('/');
-                console.log('asdasda    ')
                 } catch {
-                  console.log('Неправильный логин или пароль!');
+                  alert('Неправильный логин или пароль!');
                   ctx.commit('setAuthenticated', false)
                 }
             }
             else {
-                console.log('Заполните все поля, чтобы продолжить')
+                alert('Заполните все поля, чтобы продолжить')
               }
         },
     }

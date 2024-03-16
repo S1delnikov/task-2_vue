@@ -1,20 +1,5 @@
 <template>
     <div class="registration">
-        <!-- <form @submit.prevent="submit" class="reg-form">
-            <div class="reg-form__element">
-                <label for="login">Логин*</label>
-                <input name="login" type="text" placeholder="Введите логин" v-model="form.login">
-            </div>
-            <div class="reg-form__element">
-                <label for="email">Эл.почта</label>
-                <input name="email" type="text" placeholder="example@mail.ru" v-model="form.email">
-            </div>
-            <div class="reg-form__element">
-                <label for="password">Пароль*</label>
-                <input name="password" type="text" placeholder="Введите пароль" v-model="form.password">
-            </div>
-            <button type="submit">Зарегистрироваться</button>
-        </form> -->
         <hr>
         <form @submit.prevent="submit" class="reg-form">
             <label for="login">Логин</label>
@@ -58,12 +43,10 @@ export default {
     width: 500px;
 }
 
-/* Add padding to containers */
 .container {
   padding: 16px;
 }
 
-/* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
   padding: 15px;
@@ -78,13 +61,11 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 
-/* Overwrite default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
 
-/* Set a style for the submit/register button */
 .registerbtn {
   background-color: #04AA6D;
   color: white;
@@ -100,12 +81,10 @@ hr {
   opacity:1;
 }
 
-/* Add a blue text color to links */
 a {
   color: dodgerblue;
 }
 
-/* Set a grey background color and center the text of the "sign in" section */
 .signin {
   background-color: #f1f1f1;
   text-align: center;

@@ -17,9 +17,6 @@
               <input name="{{post.id}}" type="text" value="post.title" v-model="post.title" class="post-header__content"></input>
             </div>
             <textarea class="post-text" v-model="post.text">{{ post.text }}</textarea>
-            <!-- <p>{{ (new Date(post.date_added)).toLocaleDateString() }}</p> -->
-            <!-- <p>{{ new Intl.DateTimeFormat("ru", {dateStyle: "short"}).format(new Date(post.date_added)) }} 
-                {{ new Intl.DateTimeFormat("ru", {timeStyle: "short"}).format(new Date(post.date_added)) }}</p> -->
             <p>{{ post.date_added.toString() }}</p> 
             <div class="post-control-panel">
               <button class="btn btn-success rounded-pill px-3" @click="changeOnePost(post)">Изменить</button>
@@ -34,14 +31,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   data() {
     return {
       new_post: {
         title: '',
         text: '',
-        // date_added: new Date()
       },
     };
   },
@@ -56,29 +52,24 @@ export default {
       // date_added = new Date(date_added);
       date_added = (new Intl.DateTimeFormat("ru", {dateStyle: "short"}).format(new Date(date_added))).toString() + ' ' + 
                     (new Intl.DateTimeFormat("ru", {timeStyle: "short"}).format(new Date(date_added))).toString() 
-      console.log(date_added); 
       return date_added.toString();
     },
 
     async deleteOnePost(post) {
-      console.log(post.id);
       this.deletePost(post);
     },
 
     async changeOnePost(post) {
-      console.log(post.title, post.text);
       this.changePost(post);
     },
 
     async createPost() {
-      console.log(this.new_post.title, this.new_post.text)
       this.createNewPost(this.new_post);
     },
 
     async openCreatePostForm(){
       let btn = document.getElementById('btn-show-form');
       let form = document.getElementById('add-post-form');
-      console.log(form.classList);
       if (form.style.display == 'block'){
         form.style.display = 'none';
         btn.value = 'Создать пост';
@@ -157,7 +148,6 @@ textarea {
    } 
 
 .add-post {
-  /* display: flex;   */
   display: none;
 }
 
